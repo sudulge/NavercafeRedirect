@@ -12,10 +12,15 @@
 // ==/UserScript==
 
 (function(){
-    let nowURL = window.location.pathname
+    let nowURL = window.location.pathname.split("/")
     
-    let cafeName = nowURL.split("/")[1]
-    let articleNumber = nowURL.split("/")[2]
+    if (nowURL.length > 3) {
+        let cafeName = nowURL[4]
+        let articleNumber = nowURL[6]
+    } else {
+        let cafeName = nowURL[1]
+        let articleNumber = nowURL[2]
+    }
     
     window.location.href = `https://cafe.naver.com/${cafeName}/${articleNumber}`
 })();
