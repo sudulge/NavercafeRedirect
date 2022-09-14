@@ -16,11 +16,12 @@
     
     if (nowURL.length > 3) {
         let cafeName = nowURL[4]
-        let articleNumber = nowURL[6]
-    } else {
+        let articleNumber = nowURL[6].split("?")[0]
+        window.location.href = `https://cafe.naver.com/${cafeName}/${articleNumber}`
+    } 
+    else {
         let cafeName = nowURL[1]
         let articleNumber = nowURL[2]
+        window.location.href = `https://cafe.naver.com/${cafeName}/${articleNumber}`
     }
-    
-    window.location.href = `https://cafe.naver.com/${cafeName}/${articleNumber}`
 })();
